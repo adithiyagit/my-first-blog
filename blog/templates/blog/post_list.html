@@ -16,11 +16,11 @@
 
             /* Header styling */
             header {
-                background-color: #ff4375;
+                background-color: #ff223c;
                 color: white;
                 padding: 20px 0;
                 text-align: center;
-                font-family: 'pacific', cursive;
+                font-family: 'Lora', serif;
             }
 
             header h1 {
@@ -48,13 +48,13 @@
                 margin: 0 0 10px;
                 font-size: 1.8rem;
                 font-weight: 700;
-                font-family: 'Lora', cursive;
-                color: #ff4375;
+                font-family: 'Lora', serif;
+                color: #ff223c;
             }
 
             article h2 a {
                 text-decoration: none;
-                color: #ff4375;
+                color: #ff223c;
             }
 
             article h2 a:hover {
@@ -71,16 +71,16 @@
             article p {
                 margin: 0;
                 font-size: 1rem;
-                font-family: 'pacific', sans-serif;
+                font-family: 'Roboto', sans-serif;
             }
 
             /* General link styling */
             a {
-                color: #ff4375;
+                color: #ff223c;
             }
 
             a:hover {
-                color: #ff4375;
+                color: #ff223c;
             }
         </style>
     </head>
@@ -88,17 +88,12 @@
         <header>
             <h1><a href="/">Django Girls Blog</a></h1>
         </header>
-
+        {% for post in posts %}
         <article>
-            <time>Published: 14.06.2014, 12:14</time>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+            <time>published: {{ post.published_date }}</time>
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.text|linebreaksbr }}</p>
         </article>
-
-        <article>
-            <time>Published: 14.06.2014, 12:14</time>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </article>
+        {% endfor %}
     </body>
 </html>
